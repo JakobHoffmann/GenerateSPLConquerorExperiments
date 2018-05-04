@@ -2,6 +2,8 @@ import os
 
 
 def generate_a_scripts(base_path, out_path, feature_model_path, sampling):
+    if not os.path.exists(out_path):
+        os.makedirs(out_path)
     for folder in os.listdir(base_path):
         if folder not in ['Scripts', 'ExperimentsUtil']:
             for sub_folder in os.listdir(base_path + os.sep + folder):
