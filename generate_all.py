@@ -40,7 +40,7 @@ def generate_scripts(experiment_path, experiment, repetitions):
         add_root_offset(path + "featSolution.txt", experiment[9])
 
 
-# experiment = ("id_string", "fm path", "f dist path/string", "i dist path/string", "variant dist path", "i count", "i order", "f scale", "i scale")
+# experiment = ("id_string", "fm path", "f dist path/string", "i dist path/string", "variant dist path", "i count", "i order", "f scale", "i scale", "root offset")
 def generate_script(path, experiment, seed):
     print(experiment)
     os.makedirs(path)
@@ -118,15 +118,18 @@ if __name__ == '__main__':
     progress_file.close()
     base_path = sys.argv[1]
     experiments_path = sys.argv[2]
-    configuration_path = sys.argv[3]
-    has_interactions = bool(sys.argv[4])
+    feature_model_path = sys.argv[3]
+    configuration_path = sys.argv[4]
+    has_interactions = bool(sys.argv[5])
     repetitions = 10
-    if len(sys.argv) > 5:
-        repetitions = int(sys.argv[5])
+    if len(sys.argv) > 6:
+        repetitions = int(sys.argv[6])
     experiments = open_experiments(experiments_path)
     print(len(experiments))
     generate_experiments(experiments=experiments, base_path=base_path, repetitions=repetitions)
-    calc_configuration.calc_all(base_path=base_path, configuration_path=configuration_path, has_interactions=has_interactions)
-    create_a_scripts.generate_a_scripts(base_path=base_path, out_path=base_path + os.sep + "Scripts", feature_model_name="BerkeleyC", sampling="select-all-measurements true")
+    calc_configuration.calc_all(base_path=base_path, configuration_path=configuration_path,
+                                has_interactions=has_interactions)
+    create_a_scripts.generate_a_scripts(base_path=base_path, out_path=base_path + os.sep + "Scripts",
+                                        feature_model_path=feature_model_path, sampling="select-all-measurements true")
 
 
