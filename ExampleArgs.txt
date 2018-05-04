@@ -1,0 +1,6 @@
+.\ExampleFolder
+.\ExampleFolder\ExperimentsUtil\Experiments.txt
+.\ExampleFolder\ExperimentsUtil\FeatureModel.xml
+.\ExampleFolder\ExperimentsUtil\Configurations.txt
+true
+10
