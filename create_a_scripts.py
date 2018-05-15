@@ -14,9 +14,10 @@ def generate_a_scripts(base_path, out_path, feature_model_path, sampling):
 
 def write_a_file(relativePath, out_path, feature_model_path, script_name, sampling):
     lines = ["log " + relativePath + "/log.txt\n",
-             "vm" + feature_model_path + "\n",
+             "vm " + feature_model_path + "\n",
              "all " + relativePath + "/measurements.xml\n",
              "mlsettings learn_logFunction:true stopOnLongRound:false\n",
+             "abortError 0.1\n"
              "nfp Performance\n",
              sampling + "\n",
              "learn-splconqueror\n",
