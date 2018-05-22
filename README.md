@@ -18,3 +18,11 @@ The arguments for generate_all.py are:
 An example folder is included in the repo with a test feature model and configuration.
 Additionally in the ExampleArgs.txt file example arguments for the generate_all.py script are given. 
 Please replace the '.' and give the explicit path to each file.
+
+## calc_pemoco Info
+
+PeMoCo requires two SPLConqueror .log files so it can compare the two performance-influence models.
+This script uses an existing SPLConqueror .log file and the feat and interaction solution of Thor to generate a new reference .log file.
+
+These two files with the measurements.csv and the feature model are all needed as input for PeMoCo.
+Additionally as the measurements file were orignally .xml files, there is a method included that rewrites the measuremnts file to a .csv file
